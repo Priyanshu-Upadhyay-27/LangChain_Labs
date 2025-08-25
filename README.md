@@ -7,8 +7,6 @@ It includes fundamental concepts, practical experiments, and will gradually evol
 
 ## 📂 Repository Structure
 
-## 📂 Repository Structure
-
 ```text
 LangChain_Notebook/
 │── main.py                     # Entry point for testing concepts
@@ -48,18 +46,9 @@ LangChain_Notebook/
 
 ## ⚡ How to Use
 
-Clone the repo:
-
-```bash
-git clone https://github.com/<your-username>/LangChain_Notebook.git
-cd LangChain_Notebook
-```
-
-## ⚡ Usage
-
 Clone the repository:
 ```bash 
-git clone https://github.com/<your-username>/LangChain_Notebook.git
+git clone https://github.com/Priyanshu-Upadhyay-27/LangChain_Notebook.git
 cd LangChain_Notebook
 ```
 
@@ -77,6 +66,8 @@ pip install -r requirements.txt
 ## 📘 Resources
 
 - LangChain Documentation
+
+- CampusX (Nitish Singh Sir)
 
 - LangSmith
  – Debugging & tracing LLM apps
