@@ -1,0 +1,33 @@
+Langchain Developers recognized that the components(LLMs, chat models, retrievers etc.) they have made needs to be
+connected each time if someone wants to make a RAG application. So they decide to make classes which is nothing but
+custom code which connects one component(like a retriever which do semantic search and find relevant data) with other
+(like PromptTemplate, which makes the new prompt with the data found by retriever.).
+
+Now they had made custom functions for every redundant tasks which made there code base heavy and difficult to manage.
+This is known as chains.
+This was done at first place because langchain components are designed in such a way that they are not compatible
+with each other directly.
+The another problem is it is not flexible, as suppose a function named LLMChain will call LLM API only one time but
+what if you want to call API 2 or more times using a single function. Another custom class needs to be created.
+
+So, due to this, the concept of Runnables came into effect. Runnables are nothing but standard code which works
+seamlessly with any langchain components
+
+Characteristics of Runnables are :
+They are unit of work i.e. they can take input, process them and can return them output.
+All Runnables follow a common interface, therefore they all have same methods like .invoke(), .batch() etc.
+They all follow standard code therefore they can be connected easily.
+Two connected Runnable(workflow) as a whole will also be a Runnable.
+
+
+How Runnables are made:-
+An abstract class is made, named, "Runnables" and common methods like invoke, batch etc are instantiated while they
+need to be separately defined in the separate classes that were created earlier by langchain team i.e. they needed
+to be inherited.
+
+How one-step output is input for next step in chain shows, these langchain components are put in a list and traverse
+one by one using a loop.
+
+There are two types of runnables: Task Specific Runnables which are fundamental langchain components likes ChatOpenAI,
+PromptTemplate etc which are later converted to standard code using Runnable abstract class, while Primitive Runnable
+are used to connect task specific runnables which help in making complex workflows.

@@ -61,7 +61,6 @@ Thumbs.db
 
 # Jupyter Notebook
 .ipynb_checkpoints/
-*.ipynb
 
 # Large files and data
 *.pdf
@@ -69,7 +68,6 @@ Thumbs.db
 *.xlsx
 *.csv
 *.json
-*.txt
 *.png
 *.jpg
 *.jpeg
@@ -107,3 +105,4 @@ results/
 logs/
 
 test3.py
+find_hard_API.py

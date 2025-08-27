@@ -1,0 +1,9 @@
+Text Splitting is the process of breaking large chunks of text into smaller, manageable pieces(chunks) which an LLM can
+handle effectively. It is performed using text splitters.
+
+Why it is significant:
+It overcomes models limitations as sometimes the input text can exceed the model input size limit.
+It helps in embedding, summarization and Semantic Search.
+It helps in optimizing computer resources because working with smaller chunks of data can be more efficient and parallel
+processing can be done easily.
+
