@@ -97,7 +97,7 @@ Thumbs.db
 *.pickle
 chromadb/
 faiss_index/
-vector_store/
+my_chroma_db/
 
 # Output files
 output/

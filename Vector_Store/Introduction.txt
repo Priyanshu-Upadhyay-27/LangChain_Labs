@@ -1,0 +1,11 @@
+Vector Store is a special type of database which is used to store and retrieve data represented as numerical vectors.
+Key Features:
+It provides storage for vectors and can store the vectors in RAM or in Secondary Storage.
+It provides feature to do similar vector search.
+Indexing is used to make the search faster.
+CRUD Operations: Create, Retrieve, Update, Delete.
+
+Vector database are vector stores only with some additional features like backup, clustering, scaling, security etc.
+
+Commonly used vector store is Chroma, It is a lightweight vector database which is useful in small to medium scale
+production needs.
