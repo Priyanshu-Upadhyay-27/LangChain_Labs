@@ -24,7 +24,9 @@ LangChain_Notebook/
 ├── Structured_Output/           # Handling structured generation
 ├── Text_Splitters/              # Splitting documents into chunks
 ├── Vector_Database/             # Vector DB integrations (FAISS, Chroma, etc.)
-└── Retrievers/                  # (Upcoming) Information retrieval methods
+├── Retrievers/                  # Information retrieval methods
+├── RAG/                         # Retrieval Augmented Based Chatbots and projects(upcoming)
+└──  AI Agents/                  # Vector DB integrations (FAISS, Chroma, etc.)
 ```
 
 ---
