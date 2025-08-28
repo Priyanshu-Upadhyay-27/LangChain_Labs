@@ -98,6 +98,7 @@ Thumbs.db
 chromadb/
 faiss_index/
 my_chroma_db/
+MyChromaDB/
 
 # Output files
 output/

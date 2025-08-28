@@ -1,0 +1,19 @@
+A retriever is a component in langchain which fetches relevant documents from a data source in response to a user query.
+It's like a search engine and search required documents in the database.
+All retrievers are runnables.
+Types Of Retrievers:
+1. Based On Data Sources:
+    - Wikipedia Retriever
+    - Vector Store Retriever
+    - Arxiv Retriever
+2. Based On Searching Techniques:
+    -MMR
+    -Multi query
+
+Why to use a vector retriever if we have methods like .similarity_search() in vector stores?
+It's because, it increases abstraction(i.e. complexity will be less), if we are making a scalable and working project,
+methods used there, expects a retriever object and not a raw vector store, which ultimately makes the workflow seamless.
+With Retrievers, you can not only retrieve the relevant documents but can write custom code for filtering, reranking,
+embedding transformation etc.
+
+Some more retrievers used are:
