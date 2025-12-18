@@ -5,7 +5,7 @@ from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 template = PromptTemplate(
     template="Summarize the page content and tell what is the topic of discussion in: \n {doc}",
@@ -14,7 +14,7 @@ template = PromptTemplate(
 
 parser = StrOutputParser()
 
-url="https://medium.com/@narwar_veer/slices-in-golang-0afebbf41133"
+url = "https://medium.com/@narwar_veer/slices-in-golang-0afebbf41133"
 loader = WebBaseLoader(url)
 
 scrap = loader.load()

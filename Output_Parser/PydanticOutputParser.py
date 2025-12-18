@@ -1,4 +1,4 @@
-# PydanticOutputParser is a structured output parser in LangChain that uses Pydantic models to enforce \
+# PydanticOutputParser is a structured output parser in LangChain that uses Pydantic models to enforce
 # schema validation when processing LLM responses.
 
 # Why Use PydanticOutputParser ?
@@ -16,12 +16,12 @@ from pydantic import BaseModel, Field
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model = "gemini-2.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 class Adult(BaseModel):
     name: str = Field(description="Name of the person")
     age: int = Field(description="Age pf the Person")
-    city: str = Field( description="City of the person from where he belongs")
+    city: str = Field(description="City of the person from where he belongs")
 
 parser = PydanticOutputParser(pydantic_object = Adult)
 
@@ -31,10 +31,11 @@ temp = PromptTemplate(
     partial_variables={"format_instructions": parser.get_format_instructions()},
 )
 
-prompt = temp.invoke({"place":"Indian"})
+prompt = temp.invoke({"place": "Indian"})
 print(prompt)
 
 result = model.invoke(prompt)
 
 final_result = parser.parse(result.content)
-print(final_result)
+print("final_output :", final_result)
+print("template :", temp)

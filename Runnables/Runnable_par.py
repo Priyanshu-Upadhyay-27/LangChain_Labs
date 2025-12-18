@@ -1,7 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnableSequence, RunnableParallel
+from langchain_core.runnables import RunnableSequence, RunnableParallel
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,8 +28,8 @@ prompt3 = PromptTemplate(
 )
 chain0 = prompt1 | model | parser
 chain1 = RunnableParallel({
-    "work":RunnableSequence( prompt2, model, parser),
-    "sum":RunnableSequence(prompt3, model, parser),
+    "work": RunnableSequence(prompt2, model, parser),
+    "sum": RunnableSequence(prompt3, model, parser),
 })
 final_chain = chain0 | chain1
 

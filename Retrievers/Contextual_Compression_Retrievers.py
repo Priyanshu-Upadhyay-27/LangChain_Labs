@@ -5,7 +5,7 @@
 
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, GoogleGenerativeAI
-from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
+from langchain.retrievers import ContextualCompressionRetriever  # Changed path
 from langchain.retrievers.document_compressors import LLMChainExtractor
 from langchain_core.documents import Document
 from dotenv import load_dotenv
@@ -38,14 +38,14 @@ docs = [
     ), metadata={"source": "Doc4"})
 ]
 
-vectorstore=FAISS.from_documents(
+vectorstore = FAISS.from_documents(
     embedding=model,
     documents=docs
 )
 
 base_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
-llm = GoogleGenerativeAI(model="gemini-2.0-flash")
+llm = GoogleGenerativeAI(model="gemini-2.5-flash")
 compressor = LLMChainExtractor.from_llm(llm)
 
 compression_retriever = ContextualCompressionRetriever(

@@ -1,7 +1,7 @@
 # It is similar to recursive based, but more, number of separators are used for different documents type like markdown
 # code, or any other language code. It then divides according to these separators and then finally w.r.t para, line,
 # word and character
-from langchain.text_splitter import RecursiveCharacterTextSplitter, Language
+from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
 
 text = """
 class Calculator:

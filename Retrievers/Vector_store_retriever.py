@@ -1,5 +1,5 @@
 # It is a type of Retriever that let's you search and fetch documents from a vector store based on semantic similarity.
-#using vector embeddings.
+# using vector embeddings.
 
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -14,7 +14,7 @@ docs =[
     Document(page_content="OpenAI provides powerful embedding models.")
 ]
 
-embed_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embed_model = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 vector_store = FAISS.from_documents(
     documents=docs,
@@ -24,7 +24,7 @@ vector_store = FAISS.from_documents(
 retriever = vector_store.as_retriever(search_kwargs={"k": 2})
 
 query = "What are embeddings?"
-results = retriever.invoke(query) # .search_query() can be used too.
+results = retriever.invoke(query)            # .search_query() can be used too.
 print(results)
 
 for i, doc in enumerate(results):

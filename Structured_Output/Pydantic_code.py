@@ -15,13 +15,14 @@ new_student = {"age": "20", "email" : "priyanshucodes27@gmail.com", "cgpa" : 9}
 #Implicitly convert that string format 20 to integer format 20
 
 student1 = student(**new_student)
-
 student1_dict = dict(student1)
-
 student1_json = student1.json()
 
-print(student)
-print(student1)
-print(type(student1))
-print(student1_dict["age"])
-print(student1_json)
+print("student :", student)
+print("student1 :", student1)
+print("new_student :", new_student)
+print("type(student1) :", type(student1))
+print("student1_dict['age'] :", student1_dict["age"])
+print("student1_dict :", student1_dict)
+print("student1_json :", student1_json)
+

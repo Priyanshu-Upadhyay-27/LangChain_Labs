@@ -3,10 +3,18 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser #2
 
+"""
+Forces the LLM to return valid JSON.
+
+Automatically loads it into a Python dict.
+
+If the JSON is invalid → it throws an error (good for strict pipelines).
+"""
+
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model = "gemini-2.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 parser = JsonOutputParser()
 

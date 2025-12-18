@@ -5,17 +5,18 @@ from pydantic import BaseModel, Field
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
+model = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+
 
 
 class prod_feedback(BaseModel):
 
-    key_things: list[str] = Field(description = "Write all the list of significant points")
-    summary: str = Field(description = "Write a brief summary of the feedback")
-    sentiment: Literal["positive","negative", "neutral"] = Field(description = "Return the sentiment of the review as positive, negative or neutral")
-    pros: Optional[list[str]] = Field(default = None, description = "Write the advantages of the feedback")
-    cons: Optional[list[str]] = Field(default = None, description = "Write the disadvantages of the feedback")
-    name: Optional[str] = Field(default = None, description = "Write the name of the reviewer")
+    key_things: list[str] = Field(description="Write all the list of significant points")
+    summary: str = Field(description="Write a brief summary of the feedback")
+    sentiment: Literal["positive", "negative", "neutral"] = Field(description="Return the sentiment of the review as positive, negative or neutral")
+    pros: Optional[list[str]] = Field(default=None, description="Write the advantages of the feedback")
+    cons: Optional[list[str]] = Field(default=None, description="Write the disadvantages of the feedback")
+    name: Optional[str] = Field(default=None, description="Write the name of the reviewer")
     """
     key_things: Annotated[list[str], "Give the list of significant points"]
     summary: Annotated[str, "brief summary of the review"]

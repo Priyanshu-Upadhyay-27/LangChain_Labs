@@ -2,12 +2,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnableSequence, RunnableParallel, RunnablePassthrough
+from langchain_core.runnables import RunnableSequence, RunnableParallel, RunnablePassthrough
 # RunnablePassthrough is used to pass the input to the output as it is.
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 prompt1 = PromptTemplate(
     template="Suggest a topic from Operating System for a Group Discussion in a tier 2 Indian College",

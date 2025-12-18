@@ -10,6 +10,7 @@ from langchain_google_genai import GoogleGenerativeAI
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from langchain.retrievers.multi_query import MultiQueryRetriever
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -39,7 +40,7 @@ similarity_retriever = vector_store.as_retriever(
 )
 multiquery_retriever = MultiQueryRetriever.from_llm(
     retriever=vector_store.as_retriever(search_kwargs={"k": 5}),
-    llm=GoogleGenerativeAI(model='gemini-2.0-flash')
+    llm=GoogleGenerativeAI(model='gemini-2.5-flash')
 )
 
 query = "How to maintain balance?"

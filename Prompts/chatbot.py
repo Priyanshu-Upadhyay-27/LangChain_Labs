@@ -6,7 +6,7 @@ model = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 
 
 chat_history = [
-    SystemMessage(content = "You are a History Teacher")
+    SystemMessage(content="You are a History Teacher")
 ]
 
 while True:

@@ -1,11 +1,14 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema #3
+# this is removed afte langchain 1.0 release, it is completely replaced by .with_structured_output()
+
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+model = ChatGroq(model="llama3-70b")
 
 schema = [
     ResponseSchema(name="Fact1", description="Fact 1 about the topic"),

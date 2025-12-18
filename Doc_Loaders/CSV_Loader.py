@@ -6,4 +6,4 @@ loader = CSVLoader(file_path="Iris.csv")
 
 result = loader.load()
 
-print(result[0])
+print(result)

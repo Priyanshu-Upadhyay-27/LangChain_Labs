@@ -1,22 +1,28 @@
+from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnableParallel, RunnableBranch, RunnableLambda
+from langchain_core.runnables import RunnableParallel, RunnableBranch, RunnableLambda
 from langchain_core.output_parsers import PydanticOutputParser
 from pydantic import BaseModel, Field
 from typing import Literal
-
-
+import os
 load_dotenv()
 
-model1 = ChatGoogleGenerativeAI(model = "gemini-2.0-flash-lite")
+# model1 = ChatOpenAI(
+#     model="gpt-4o-mini",
+#     api_key=os.getenv("GITHUB_TOKEN"),
+#     base_url="https://models.inference.ai.azure.com"
+# )
+model1 = ChatGoogleGenerativeAI(model="gemini-2.5-flash",
+                                api_key=os.getenv("GOOGLE_API_KEY")
+                                )
 
 parser = StrOutputParser()
 
 class Feedback(BaseModel):
-    sentiment: Literal["positive", "negative", "neutral"] = Field(description = "Classify the sentiment based on the text provided")
+    sentiment: Literal["positive", "negative", "neutral"] = Field(description="Classify the sentiment based on the text provided")
 
 parser2 = PydanticOutputParser(pydantic_object = Feedback)
 template1 = PromptTemplate(
@@ -29,9 +35,9 @@ template1 = PromptTemplate(
 
 classifier_chain = template1 | model1 | parser2
 
-"""result = classifier_chain.invoke({
-    "feedback": "I had brought a Samsung curve screen tv 1 year ago and it is not good or bad"
-})"""
+result0 = classifier_chain.invoke({
+ "feedback": "I had brought a Samsung curve screen tv 1 year ago and it is not good or bad"
+})
 
 prompt2 = PromptTemplate(
     template="Write a **single, short, professional** response to this positive feedback : \n {feedback}",
@@ -58,10 +64,11 @@ branch_chain = RunnableBranch(
 chain = classifier_chain | branch_chain
 
 result = chain.invoke({
-    "feedback":"This is the new Samsung S25 Ultra and it's just a copy of previous model with only a few new feature "
+    "feedback": "This is the new Samsung S25 Ultra and it's just a copy of previous model with only a few new feature "
 })
+print("result_feedback = ", result0)
 
-print(result)
+print("Final respsonse to the feedback :", result)
 
 chain.get_graph().print_ascii()
 

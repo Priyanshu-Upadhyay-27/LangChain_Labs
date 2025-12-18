@@ -5,6 +5,8 @@ class Person(TypedDict):
     age: int
 
 
-newperson : Person = {"Name": "Priyanshu", "Age" : "20"}
+newperson : Person = {"name": "Priyanshu", "age" : 20}
 
 print(newperson)
+print(type(newperson))
+print(type(Person))

@@ -18,7 +18,6 @@ docs = [
 ]
 
 model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-
 vector_store = Chroma(
     embedding_function=model,
     persist_directory="MyChromaDB",
@@ -28,7 +27,7 @@ vector_store.add_documents(docs)
 
 retriever = vector_store.as_retriever(
     search_type="mmr",
-    search_kwargs={"k": 3, "lambda_mult": 0.}
+    search_kwargs={"k": 3, "lambda_mult": 0.2}
     # lambda_mult varies from 0-1 where 0 gives the most diversified content and 1 gives the redundant one.
 )
 

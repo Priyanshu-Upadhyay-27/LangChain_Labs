@@ -22,7 +22,7 @@ print("0th element in document =", docs[0])
 
 print("Type of each element in document =", type(docs[0]))
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 template = PromptTemplate(
     template="""Take Even Page no. slides from the {ppt} by reading the meta data and generate a short summary for each 

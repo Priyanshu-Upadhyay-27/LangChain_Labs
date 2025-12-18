@@ -2,7 +2,7 @@
 # provided. It is fast but strict which leads to splitting of text by avoiding the linguistics measures.
 # Ex: missi and ng
 
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 text = """
 Space exploration has led to incredible scientific discoveries. From landing on the Moon to
 exploring Mars, humanity continues to push the boundaries of what's possible beyond our planet.
@@ -14,8 +14,8 @@ imaging techniques trace their roots back to innovations driven by space program
 
 splitter = CharacterTextSplitter(
     chunk_size=100,
-    chunk_overlap=0 ,# here, 0 characters will be overlap between 2 chunks.For 100 chunk size: 10-20 overlap is required
-    separator=''
+    chunk_overlap=0, # here, 0 characters will be overlap between 2 chunks.For 100 chunk size: 10-20 overlap is required
+    separator=' '                  # this will change the chunk size, as where to separate has high priority
 )
 result = splitter.split_text(text)
-print(result) # It will be a list of chunk
+print(result)               # It will be a list of chunk

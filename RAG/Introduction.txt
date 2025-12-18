@@ -1,0 +1,41 @@
+RAG : Retrieval Augmented Generation
+
+Generally:
+User ----> LLM ----> LLM Response
+
+But it fails when:
+- Personal Data Of Website is required to be used by the LLM
+- When current date data is required
+- Hallucinations: LLMs can give made up factual data on their own as they work on probability and there is a chance of this too.
+
+To solve this problem, people had used fine-tuning, but later it was not so successful because, it is costly, because
+even to train few epochs you need heavy computational power. Even if you get this, you need expertise or people with
+these expertise to fine tune or train the models. If some data on which models get fine tune, updates regularly, then
+it becomes inefficient to do this.
+
+Another solution is Conceptual Learning, which is a type of learning due to emergent property of LLMs. In easy words,
+complex models like gpt, lama, claude generates an ability to learn from prompts on there own. Due to which we can teach
+LLMs using prompts and then ask them to give our query answers.
+
+Since in conceptual learning, we send examples to explain the LLM and then answer the query, but what if we send the whole
+context?
+This is what we call RAG. RAG is a type of smart LLM implementation where LLM receives a query with the context of the
+query. The LLM resolves the query using the context, and it's parametric knowledge to give the response which is updated,
+related to the context, and it also avoids hallucinations.
+
+RAG setup:
+
+1. Indexing : Building External Knowledge base so that it can be efficiently searched.
+    - Document Loaders are used to load the files like pdf, word document into a common object
+    - These Large Documents are then split into smaller chunks due to better semantic search and token limits of LLM.
+    - These smaller chunks are then converted into vectors(embeddings) using an embedding model.
+    - These embeddings are then stored in a vector store like FAISS, Chroma etc.
+    - This vector store is the external knowledge base.
+2. Retrieval: Finding relevant data from external knowledge base which is related to the query.
+    - Retrievers convert query into vector embeddings and find the similar content in the external knowledge base.
+    - Once that content is found, query with the content is sent to the LLM
+3. Augmentation: Making prompt using users query and retrieved data from external base
+4. Generation: LLM uses text generation and in context learning to answer the query
+
+It is a cheaper alternative to fine-tuning for the above stated problem.
+

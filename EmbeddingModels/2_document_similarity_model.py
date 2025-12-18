@@ -11,7 +11,6 @@ from langchain_openai import OpenAIEmbeddings
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=300)"""
 
-
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 document = ["Machine Learning is the field of training algorithms on specific pre-processed data.",

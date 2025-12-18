@@ -1,7 +1,16 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser #1
+
+"""
+It returns the raw LLM output as a clean string.
+
+Removes extra whitespace, but does NOT enforce structure.
+
+Use it when you don’t need formatting—just take whatever the LLM writes.
+"""
 
 load_dotenv()
 
@@ -10,7 +19,8 @@ llm = HuggingFaceEndpoint(
     task="text-generation",
 )
 
-model = ChatHuggingFace(llm=llm)
+model1 = ChatHuggingFace(llm=llm)
+model2 = ChatGroq(model_name="llama-3.3-70b-versatile")
 
 top = input("Enter the topic : ")
 
@@ -26,7 +36,7 @@ temp2 = PromptTemplate(
 
 parser = StrOutputParser()
 
-chain = temp1 | model | parser| temp2 | model | parser # Chains
+chain = temp1 | model2 | parser| temp2 | model2 | parser # Chains
 
 response = chain.invoke({"topic":top})
 

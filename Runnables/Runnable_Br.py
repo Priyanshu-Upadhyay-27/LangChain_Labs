@@ -2,7 +2,7 @@ from langchain_google_genai import GoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
-from langchain.schema.runnable import RunnableSequence, RunnableParallel, RunnablePassthrough, RunnableBranch, RunnableLambda
+from langchain_core.runnables import RunnableSequence, RunnableParallel, RunnablePassthrough, RunnableBranch, RunnableLambda
 
 load_dotenv()
 
@@ -16,14 +16,14 @@ prompt2 = PromptTemplate(
     input_variables=['text']
 )
 
-model = GoogleGenerativeAI(model="gemini-1.5-flash")
+model = GoogleGenerativeAI(model="gemini-2.5-flash")
 
 parser = StrOutputParser()
 
 report_gen_chain = prompt1 | model | parser
 
 branch_chain = RunnableBranch(
-    (lambda x: len(x.split())>300, prompt2 | model | parser),
+    (lambda x: len(x.split()) > 300, prompt2 | model | parser),
     RunnablePassthrough()
 )
 

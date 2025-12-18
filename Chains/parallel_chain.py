@@ -4,7 +4,7 @@ from langchain_ollama import ChatOllama
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnableParallel
+from langchain_core.runnables import RunnableParallel
 
 text = """1.4. Support Vector Machines
 Support Vector Machine (SVM) is a supervised machine learning algorithm used for classification and regression tasks. It tries to find the best boundary known as hyperplane that separates different classes in the data. It is useful when you want to do binary classification like spam vs. not spam or cat vs. dog.

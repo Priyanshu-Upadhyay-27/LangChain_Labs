@@ -1,7 +1,8 @@
 Langchain Developers recognized that the components(LLMs, chat models, retrievers etc.) they have made needs to be
 connected each time if someone wants to make a RAG application. So they decide to make classes which is nothing but
 custom code which connects one component(like a retriever which do semantic search and find relevant data) with other
-(like PromptTemplate, which makes the new prompt with the data found by retriever.).
+(like PromptTemplate, which makes the new prompt with the data found by retriever.). It was done because, previously,
+every object behaves differently.
 
 Now they had made custom functions for every redundant tasks which made there code base heavy and difficult to manage.
 This is known as chains.
@@ -24,6 +25,11 @@ How Runnables are made:-
 An abstract class is made, named, "Runnables" and common methods like invoke, batch etc are instantiated while they
 need to be separately defined in the separate classes that were created earlier by langchain team i.e. they needed
 to be inherited.
+A base class called Runnable is provided by LangChain which defines and implements common execution methods such as
+invoke(), batch(), stream(), and their async variants.
+These methods provide a unified execution interface.
+Specific components like LLMs, chains, retrievers, and tools inherit from Runnable and only implement the core logic
+required for execution, while the higher-level methods are reused from the base class.
 
 How one-step output is input for next step in chain shows, these langchain components are put in a list and traverse
 one by one using a loop.

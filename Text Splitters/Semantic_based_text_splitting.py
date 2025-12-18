@@ -1,5 +1,5 @@
 # It works on the division of input text on the basis of semantic meaning of the text provided. Suppose two topics are
-# covered in a single paragraph, then we will not be able to split them based on there particular topics for feeding to
+# covered in a single paragraph, then we will not be able to split them based on the particular topics for feeding to
 # the LLM So we use Semantic text splitter where embeddings of the input is generated and cosine similarity is calculated
 # between each line of text. When there is a sudden drop in the similarity, then it shows the meaning of the sentence gets changed
 # and new topic is started. This is how, chunks are divided.
@@ -23,7 +23,8 @@ about peace and safety.
 """
 
 splitter = SemanticChunker(
-    GoogleGenerativeAIEmbeddings(model="models/text-embedding-004"), breakpoint_threshold_type="standard_deviation",
+    GoogleGenerativeAIEmbeddings(model="models/text-embedding-004"),
+    breakpoint_threshold_type="standard_deviation",
     breakpoint_threshold_amount=0.3
 )
 

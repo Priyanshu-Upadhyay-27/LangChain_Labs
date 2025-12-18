@@ -1,4 +1,4 @@
-Document Loaders are used to load documents by converting them into a common  Langchain document object(standardized format),
+Document Loaders are used to load documents by converting them into a common Langchain document object(standardized format),
 which are coming from a different source like .pdf, .docx, etc.
 
 Document object:

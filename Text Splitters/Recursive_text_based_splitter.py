@@ -10,14 +10,14 @@ How are you (11)
 """
 # Now the algo starts by checking the total characters of the inputs, if it is lower than chunk_size, then that input is
 # a chunk, but if it is larger than the input is divided based on \n\n i.e. divided on the basis of para. Now the total
-# character in each para are checked, if lower than the chunk_size, then are considered as chunks and if not, then again
+# character in each para are checked, if lower than the chunk_size, then are considered as chunks else  again
 # divided on the basis of \n i.e. divided on the basis of line. Now the total characters of each line are checked, if
-# lower than good and if not then again it is divided on the basis of spaces i.e. words and if in this also, the
+# lower, then good else again it is divided on the basis of spaces i.e. words and if in this also, the
 # chunk_size is smaller than total characters in words than at last no space i.e. characters. One thing is also there,
 # if the no. of characters in the input gets too small from the chunk_size, then algo tries to recombine divided chunks
 # to get the maximum length of chunks characters near to the chunk_size.
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 text = """
 Space exploration has led to incredible scientific discoveries. From landing on the Moon to

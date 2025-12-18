@@ -18,3 +18,13 @@ for m in client.models.list():
     for action in m.supported_actions:
         if action == "embedContent":
             print(m.name)
+"""from google import genai
+from dotenv import load_dotenv
+load_dotenv()
+client = genai.Client()
+
+try:
+    r = client.models.generate_content(model="gemini-2.0-flash", contents="hello")
+    print("WORKED:", r.text)
+except Exception as e:
+    print("FAILED:", e)"""

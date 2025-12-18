@@ -6,7 +6,7 @@ from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 template = PromptTemplate(
     template="Summarize the document provided: \n {doc}",
@@ -15,11 +15,11 @@ template = PromptTemplate(
 
 parser = StrOutputParser()
 
-loader = TextLoader("Poem.txt", encoding="utf-8") # object
+loader = TextLoader("Poem.txt", encoding="utf-8")                       # object
 
-docs = loader.load() # docs will be a list of document object
+docs = loader.load()                               # docs will be a list of document object
 
-print(type(docs[0]))
+print(docs[0])
 
 print(len(docs))
 
