@@ -4,6 +4,7 @@
 
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_ollama import OllamaEmbeddings
 from langchain_core.documents import Document
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,7 +18,7 @@ docs = [
     Document(page_content="LangChain supports Chroma, FAISS, Pinecone, and more."),
 ]
 
-model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+model = OllamaEmbeddings(model="nomic-embed-text")
 vector_store = Chroma(
     embedding_function=model,
     persist_directory="MyChromaDB",
